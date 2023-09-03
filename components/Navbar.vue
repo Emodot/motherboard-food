@@ -1,29 +1,36 @@
 <template>
   <div class="navbar_ctn">
     <div class="navbar_inner">
-      <div class="logo">
-        <!-- <img src="" alt=""> -->
-        <h1>LOGO</h1>
-      </div>
-      <div class="menu_list">
-        <p class="menu_item">
-          Catalog
-        </p>
-        <p class="menu_item">
-          Delivery
-        </p>
-        <p class="menu_item">
-          About
-        </p>
-        <p class="menu_item">
-          Contacts
-        </p>
+      <div class="navbar_lhs">
+        <div class="logo">
+          <!-- <img src="" alt=""> -->
+          <h1>LOGO</h1>
+        </div>
+        <div class="menu_list">
+          <p class="menu_item">
+            Catalog
+          </p>
+          <p class="menu_item">
+            Delivery
+          </p>
+          <p class="menu_item">
+            About
+          </p>
+          <p class="menu_item">
+            Contacts
+          </p>
+        </div>
       </div>
       <div class="cart_ctn">
         <p class="cart_text">
           Cart
         </p>
-        <img src="" alt="">
+        <span class="material-icons-outlined">
+          shopping_cart
+        </span>
+        <div class="num_box">
+          <p>0</p>
+        </div>
       </div>
     </div>
   </div>
@@ -36,7 +43,59 @@ export default {
 </script>
 
 <style scoped>
+.navbar_ctn {
+  background-color: white;
+}
 .navbar_inner {
+  max-width: 1344px;
+  width: 80%;
+  height: 80px;
+  margin: auto;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar_lhs {
+  display: flex;
+  align-items: center;
+  flex-basis: 40%;
+  /* background-color: red; */
+}
+
+.logo {
+  margin-right: 5rem;
+}
+
+.menu_list {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.cart_ctn {
+  display: flex;
+  align-items: center;
+}
+
+.cart_text {
+  margin-right: 15px;
+}
+
+.num_box {
+  width: 20px;
+  height: 20px;
+  background-color: #A5C926;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  border-radius: 50%;
+  margin-left: 15px;
+}
+
+.num_box p {
+  font-size: 12px;
+  color: white;
 }
 </style>
