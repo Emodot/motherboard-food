@@ -32,6 +32,11 @@
                 {{ addToCartText }}
               </button>
             </div>
+            <div class="error_text_box">
+              <p v-if="errorMessage" class="error_text come-down">
+                {{ errorMessage }}
+              </p>
+            </div>
           </div>
           <div class="rhs">
             <img :src="product.image" alt="">
@@ -125,7 +130,8 @@ export default {
     return {
       product: {},
       productNum: 1,
-      addToCartText: 'Add to Cart'
+      addToCartText: 'Add to Cart',
+      errorMessage: ''
     }
   },
   created () {
@@ -133,11 +139,20 @@ export default {
   },
   methods: {
     addToCart () {
-      this.$store.commit('updateCartList', this.product)
-      this.addToCartText = 'Added'
-      setTimeout(() => {
-        this.addToCartText = 'Add to Cart'
-      }, 3000)
+      const cartProduct = this.$store.state.cartList
+      const foundProduct = cartProduct.find(product => product.name === this.product.name)
+      if (!foundProduct) {
+        this.$store.commit('updateCartList', this.product)
+        this.addToCartText = 'Added!'
+        setTimeout(() => {
+          this.addToCartText = 'Add to Cart'
+        }, 3000)
+      } else {
+        this.errorMessage = 'Product already in cart'
+        setTimeout(() => {
+          this.errorMessage = ''
+        }, 3000)
+      }
     },
     increment () {
       this.$store.commit('updateProductValue', 'increment')
@@ -243,6 +258,16 @@ export default {
   color: white;
   height: 50px;
   padding: 0 20px;
+}
+
+.error_text {
+  /* margin-top: 20px; */
+  color: red;
+}
+
+.error_text_box {
+  height: 50px;
+  padding-top: 20px;
 }
 
 .product_details {
