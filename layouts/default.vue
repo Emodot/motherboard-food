@@ -1,15 +1,21 @@
 <template>
   <div class="main">
-    <Navbar />
+    <Navbar @open-cart="openCart = true" />
     <div class="main_content">
       <Nuxt />
     </div>
     <Footer />
+    <ModalsCart v-if="openCart" @close-modal="openCart = false" />
   </div>
 </template>
 
 <script>
 export default {
+  data () {
+    return {
+      openCart: true
+    }
+  }
 
 }
 </script>

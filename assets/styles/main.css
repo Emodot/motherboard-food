@@ -49,3 +49,31 @@ h1 {
 .card_title {
   font-family: 'Varela Round', sans-serif;
 }
+
+.come-down {
+	animation: come-down .5s ease-in-out;
+	-webkit-animation: come-down .5s ease-in-out;
+}
+
+.reveals {
+	animation: reveals .7s ease-in-out;
+	-webkit-animation: reveals .7s ease-in-out;
+}
+@keyframes reveals {
+	0% {
+		opacity: 0;
+		transform: scale(0);
+	}
+	60% {
+		opacity: 1;
+		transform: scale(1);
+	}
+	80% {
+		opacity: 1;
+		transform: scale(0.9);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}

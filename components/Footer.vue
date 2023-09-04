@@ -72,7 +72,7 @@ export default {
   /* position: fixed; */
   bottom: 0;
   width: 100%;
-  z-index: 30;
+  z-index: 5;
 }
 .footer_ctn {
   max-width: 1344px;
