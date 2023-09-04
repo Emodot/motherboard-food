@@ -7,15 +7,29 @@
       <span class="material-icons-outlined">
         east
       </span>
-      <p class="nav_link">
+      <p class="nav_link" @click="$router.go(-1)">
         Catalog
       </p>
+      <div v-if="addRoute !== ''" class="new_route">
+        <span class="material-icons-outlined">
+          east
+        </span>
+        <p class="nav_link">
+          {{ addRoute }}
+        </p>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    addRoute: {
+      type: String,
+      default: () => ''
+    }
+  }
 
 }
 </script>
@@ -32,9 +46,15 @@ export default {
   border-radius: 30px;
 }
 
+.new_route {
+  display: flex;
+  align-items: center;
+}
+
 .nav_link {
   color: #999999;
   font-size: 12px;
+  cursor: pointer;
 }
 
 .material-icons-outlined {
