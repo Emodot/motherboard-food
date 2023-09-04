@@ -5,6 +5,8 @@
         <div class="logo">
           <img src="~assets/images/motherboard-logo.png" alt="">
         </div>
+      </div>
+      <div class="navbar_middle">
         <div class="menu_list">
           <p class="menu_item">
             Catalog
@@ -20,15 +22,17 @@
           </p>
         </div>
       </div>
-      <div class="cart_ctn">
-        <p class="cart_text">
-          Cart
-        </p>
-        <span class="material-icons-outlined">
-          shopping_cart
-        </span>
-        <div class="num_box">
-          <p>0</p>
+      <div class="navbar_rhs">
+        <div class="cart_ctn" @click="$emit('open-cart')">
+          <p class="cart_text">
+            Cart
+          </p>
+          <span class="material-icons-outlined">
+            shopping_cart
+          </span>
+          <div class="num_box">
+            <p>0</p>
+          </div>
         </div>
       </div>
     </div>
@@ -47,7 +51,7 @@ export default {
   box-shadow: 0px 5px 20px #dadada;
   position: fixed;
   width: 100%;
-  z-index: 30;
+  z-index: 5;
 }
 .navbar_inner {
   max-width: 1344px;
@@ -62,23 +66,35 @@ export default {
 .navbar_lhs {
   display: flex;
   align-items: center;
-  flex-basis: 40%;
-  /* background-color: red; */
+  justify-content: space-between;
+  flex-basis: 23%;
 }
 
 .logo {
   margin-right: 5rem;
-  width: 70%;
+  width: 80%;
 }
 
 .logo img {
   width: 100%;
 }
 
+.navbar_middle {
+  flex-basis: 68%;
+  display: flex;
+  justify-content: left;
+}
+
+.navbar_rhs {
+  flex-basis: 30%;
+  display: flex;
+  justify-content: flex-end;
+}
+
 .menu_list {
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 45%;
   justify-content: space-between;
 }
 
@@ -87,6 +103,7 @@ export default {
 }
 
 .cart_ctn {
+  cursor: pointer;
   display: flex;
   align-items: center;
 }

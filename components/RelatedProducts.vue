@@ -93,7 +93,7 @@ export default {
   margin-top: -1px;
   border: 1px solid var(--primary-color);
   width: 11rem;
-  z-index: 20;
+  z-index: 2;
 }
 
 .tab_section {
