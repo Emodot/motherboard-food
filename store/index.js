@@ -15,6 +15,9 @@ export const mutations = {
     }
   },
   updateCartList (state, val) {
-    state.cartList.push(val)
+    const foundProduct = state.cartList.find(product => product.name === val.name)
+    if (!foundProduct) {
+      state.cartList.push(val)
+    }
   }
 }
