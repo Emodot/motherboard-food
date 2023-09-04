@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main">
     <Navbar />
     <div class="main_content">
       <Nuxt />
@@ -14,6 +14,9 @@ export default {
 </script>
 
 <style scoped>
+.main {
+  background-color: #F8F8F8;
+}
 .main_content {
   padding-top: 90px;
 }
