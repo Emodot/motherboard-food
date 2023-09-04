@@ -9,49 +9,54 @@
           close
         </span>
       </div>
-      <div class="modal_content">
-        <div v-for="(product, index) in productList" :key="index" class="product_item">
-          <div class="lhs">
-            <img :src="product.image" alt="">
-          </div>
-          <div class="mhs">
-            <p class="product_name">
-              {{ product.name }}
-            </p>
-            <p class="product_price">
-              $ {{ product.price }} USD
-            </p>
-            <p class="product_delete" @click="removeItem(product)">
-              Remove
-            </p>
-          </div>
-          <div class="rhs">
-            <div class="increment_decrement">
-              <span class="material-icons-outlined" :class="`${productNum === 1 ? 'not_allow' : ''}`" @click="decrement()">
-                remove
-              </span>
-              <div class="num">
-                <p>
-                  {{ product.value }}
-                </p>
+      <div v-if="productList.length">
+        <div class="modal_content">
+          <div v-for="(product, index) in productList" :key="index" class="product_item">
+            <div class="lhs">
+              <img :src="product.image" alt="">
+            </div>
+            <div class="mhs">
+              <p class="product_name">
+                {{ product.name }}
+              </p>
+              <p class="product_price">
+                $ {{ product.price }} USD
+              </p>
+              <p class="product_delete" @click="removeItem(product)">
+                Remove
+              </p>
+            </div>
+            <div class="rhs">
+              <div class="increment_decrement">
+                <span class="material-icons-outlined" :class="`${productNum === 1 ? 'not_allow' : ''}`" @click="decrement()">
+                  remove
+                </span>
+                <div class="num">
+                  <p>
+                    {{ product.value }}
+                  </p>
+                </div>
+                <span class="material-icons-outlined" @click="increment()">
+                  add
+                </span>
               </div>
-              <span class="material-icons-outlined" @click="increment()">
-                add
-              </span>
             </div>
           </div>
         </div>
+        <div class="subtotal">
+          <p>Subtotal</p>
+          <p class="amount">
+            $ 106.00 USD
+          </p>
+        </div>
+        <div class="bottom_section">
+          <button class="checkout_btn">
+            Continue to Checkout
+          </button>
+        </div>
       </div>
-      <div class="subtotal">
-        <p>Subtotal</p>
-        <p class="amount">
-          $ 106.00 USD
-        </p>
-      </div>
-      <div class="bottom_section">
-        <button class="checkout_btn">
-          Continue to Checkout
-        </button>
+      <div class="empty_box" v-else>
+        <p>No items found</p>
       </div>
     </div>
   </div>
@@ -76,6 +81,16 @@ export default {
     console.log(this.productList)
   },
   methods: {
+    removeItem (val) {
+      // this.productList = this.productList.reduce((acc, item) => {
+      //   if (item.name !== val.name) {
+      //     acc.push(item)
+      //   }
+      //   return acc
+      // }, [])
+      // console.log(this.productList)
+      this.$store.dispatch('removeCartListAction', val)
+    },
     increment () {
       this.productNum++
     },
@@ -141,6 +156,17 @@ export default {
   border-bottom: 1px solid var(--border-color);
 }
 
+.empty_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10rem;
+}
+
+.empty_box p {
+  text-align: center;
+}
+
 .product_item {
   display: flex;
   justify-content: space-between;
@@ -165,6 +191,7 @@ export default {
 }
 
 .product_delete {
+  cursor: pointer;
   font-size: 12px;
   color: red;
   margin-top: 5px;

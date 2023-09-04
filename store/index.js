@@ -15,9 +15,25 @@ export const mutations = {
     }
   },
   updateCartList (state, val) {
-    const foundProduct = state.cartList.find(product => product.name === val.name)
-    if (!foundProduct) {
-      state.cartList.push(val)
-    }
+    state.cartList.push(val)
+  },
+  removeCartList (state, val) {
+    state.cartList = val
+    // state.cartList.push(val)
+  }
+}
+
+export const actions = {
+  removeCartListAction ({ state, commit }, payload) {
+    console.log(payload)
+    let list = state.cartList
+    list = list.reduce((acc, item) => {
+      if (item.name !== payload.name) {
+        acc.push(item)
+      }
+      return acc
+    }, [])
+    console.log(list)
+    commit('removeCartList', list)
   }
 }
