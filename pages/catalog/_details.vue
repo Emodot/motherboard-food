@@ -114,6 +114,7 @@
         </div>
       </div>
       <RelatedProducts />
+      <Newsletter />
     </div>
   </div>
 </template>
@@ -141,6 +142,7 @@ export default {
 <style scoped>
 .main_ctn {
   background-color: #F8F8F8;
+  padding-bottom: 5rem;
 }
 .details_ctn {
   max-width: 1344px;

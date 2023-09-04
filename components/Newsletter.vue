@@ -1,0 +1,93 @@
+<template>
+  <div class="newsletter_ctn">
+    <div class="lhs">
+      <svg
+        width="66"
+        height="66"
+        viewBox="0 0 66 66"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <rect width="66" height="66" rx="33" fill="#4361EE" />
+        <rect x="17" y="17" width="32" height="32" fill="url(#pattern0)" />
+        <defs>
+          <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+            <use xlink:href="#image0_2960_2432" transform="scale(0.03125)" />
+          </pattern>
+          <image id="image0_2960_2432" width="32" height="32" xlink:href="data:image/png;base64,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" />
+        </defs>
+      </svg>
+      <p class="text">
+        Subscribe to our newsletter & get <span class="spaned_text">10% discount!</span>
+      </p>
+    </div>
+    <div class="rhs">
+      <input class="newsletter_input" placeholder="Enter your email address" type="text">
+      <button class="subscribe_btn">
+        Subscribe
+      </button>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style scoped>
+.newsletter_ctn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5rem;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0px 5px 10px #dadada;
+}
+.lhs {
+  display: flex;
+  align-items: center;
+  flex-basis: 35%;
+}
+
+.rhs {
+  justify-content: end;
+  display: flex;
+  flex-basis: 45%;
+}
+
+.lhs svg {
+  margin-right: 30px;
+}
+
+.text {
+  font-family: 'Varela Round', sans-serif;
+  font-size: 24px;
+}
+.spaned_text {
+  color: var(--primary-color);
+  font-family: 'Varela Round', sans-serif;
+  font-size: 24px;
+}
+
+.newsletter_input {
+  border: 1px solid var(--border-color);
+  border-radius: 30px;
+  padding: 0 20px;
+  height: 50px;
+  background-color: #F8F8F8;
+  margin-right: 30px;
+  width: 100%;
+}
+
+.subscribe_btn {
+  background-color: var(--primary-color);
+  border-radius: 30px;
+  color: white;
+  height: 50px;
+  padding: 0 30px;
+}
+</style>
