@@ -6,35 +6,35 @@
         <div class="top_section">
           <div class="lhs">
             <h2 class="product_name">
-              {{ $route.params.details }}
+              {{ product.name }}
             </h2>
             <p class="product_desc">
               A successful marketing plan relies heavily on the pulling-power of advertising copy. Writing result-oriented ad copy is difficult, as it must appeal to, entice, and convince consumers to take action. There is no magic formula to write perfect ad copy. It is based on a number of factors.
             </p>
             <p class="product_price">
-              $ 30.00 USD
+              $ {{ product.price }} USD
             </p>
             <div class="add_cart">
               <div class="increment_decrement">
-                <span class="material-icons-outlined" :class="`${productNum === 1 ? 'not_allow' : ''}`" @click="decrement()">
+                <span class="material-icons-outlined" :class="`${product.value === 1 ? 'not_allow' : ''}`" @click="decrement()">
                   remove
                 </span>
                 <div class="num">
                   <p>
-                    {{ productNum }}
+                    {{ product.value }}
                   </p>
                 </div>
                 <span class="material-icons-outlined" @click="increment()">
                   add
                 </span>
               </div>
-              <button class="cart_btn">
-                Add to Cart
+              <button class="cart_btn" @click="addToCart()">
+                {{ addToCartText }}
               </button>
             </div>
           </div>
           <div class="rhs">
-            <img src="~assets/images/teddy.png" alt="">
+            <img :src="product.image" alt="">
           </div>
         </div>
         <div class="product_details">
@@ -123,16 +123,29 @@
 export default {
   data () {
     return {
-      productNum: 1
+      product: {},
+      productNum: 1,
+      addToCartText: 'Add to Cart'
     }
   },
+  created () {
+    this.product = this.$store.state.selectedProduct
+  },
   methods: {
+    addToCart () {
+      this.$store.commit('updateCartList', this.product)
+      this.addToCartText = 'Added'
+      setTimeout(() => {
+        this.addToCartText = 'Add to Cart'
+      }, 3000)
+    },
     increment () {
-      this.productNum++
+      this.$store.commit('updateProductValue', 'increment')
+      // this.product.value++
     },
     decrement () {
-      if (this.productNum > 1) {
-        this.productNum--
+      if (this.product.value > 1) {
+        this.$store.commit('updateProductValue', 'decrement')
       }
     }
   }
@@ -160,6 +173,20 @@ export default {
 .top_section {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+}
+
+.lhs {
+  flex-basis: 50%;
+}
+
+.rhs {
+  flex-basis: 50%;
+  text-align: right;
+}
+
+.rhs img {
+  width: 80%;
 }
 
 .product_name {

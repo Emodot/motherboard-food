@@ -31,7 +31,7 @@
             shopping_cart
           </span>
           <div class="num_box">
-            <p>0</p>
+            <p>{{ productList.length }}</p>
           </div>
         </div>
       </div>
@@ -41,7 +41,14 @@
 
 <script>
 export default {
-
+  data () {
+    return {
+      productList: {}
+    }
+  },
+  created () {
+    this.productList = this.$store.state.cartList
+  }
 }
 </script>
 

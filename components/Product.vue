@@ -1,6 +1,6 @@
 <template>
   <div class="card_list">
-    <div v-for="(card, index) in cardDetails" :key="index" class="card_ctn" @click="$router.push(`/catalog/${card.name}`)">
+    <div v-for="(card, index) in cardDetails" :key="index" class="card_ctn" @click="selectProduct(card)">
       <div class="card_image">
         <img :src="card.image" alt="">
       </div>
@@ -20,6 +20,13 @@ export default {
     cardDetails: {
       type: Array,
       default: () => []
+    }
+  },
+  methods: {
+    selectProduct (card) {
+      // console.log(card)
+      this.$store.commit('setselectedProduct', card)
+      this.$router.push(`/catalog/${card.name}`)
     }
   }
 
