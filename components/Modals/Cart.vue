@@ -28,7 +28,7 @@
             </div>
             <div class="rhs">
               <div class="increment_decrement">
-                <span class="material-icons-outlined" :class="`${productNum === 1 ? 'not_allow' : ''}`" @click="decrement()">
+                <span class="material-icons-outlined" :class="`${product.value === 1 ? 'not_allow' : ''}`" @click="decrement(product)">
                   remove
                 </span>
                 <div class="num">
@@ -36,7 +36,7 @@
                     {{ product.value }}
                   </p>
                 </div>
-                <span class="material-icons-outlined" @click="increment()">
+                <span class="material-icons-outlined" @click="increment(product)">
                   add
                 </span>
               </div>
@@ -55,7 +55,7 @@
           </button>
         </div>
       </div>
-      <div class="empty_box" v-else>
+      <div v-else class="empty_box">
         <p>No items found</p>
       </div>
     </div>
@@ -78,7 +78,6 @@ export default {
   },
   created () {
     this.productList = this.$store.state.cartList
-    console.log(this.productList)
   },
   methods: {
     removeItem (val) {
@@ -89,14 +88,15 @@ export default {
       //   return acc
       // }, [])
       // console.log(this.productList)
-      this.$store.dispatch('removeCartListAction', val)
+      this.$store.commit('removeCartList', val)
     },
-    increment () {
-      this.productNum++
+    increment (val) {
+      this.$store.commit('increaseCartProductValue', val)
+      // this.productNum++
     },
-    decrement () {
-      if (this.productNum > 1) {
-        this.productNum--
+    decrement (val) {
+      if (val.value > 1) {
+        this.$store.commit('decreaseCartProductValue', val)
       }
     }
   }
@@ -191,6 +191,7 @@ export default {
 }
 
 .product_delete {
+  width: fit-content;
   cursor: pointer;
   font-size: 12px;
   color: red;
