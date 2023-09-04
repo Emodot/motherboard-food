@@ -2,11 +2,13 @@
   <div class="products_ctn">
     <div class="top_section">
       <h2 class="title">
-        {{ activeTab }}
+        Related Products
       </h2>
       <div class="tab_section">
-        <div v-for="(tab, index) in tabs" :key="index" :class="`tab ${activeTab.toLowerCase() === tab.toLowerCase() ? 'activeTab' : ''}`" @click="setActiveTab(tab)">
-          <p>{{ tab }}</p>
+        <div @click="$router.push('/catalog')">
+          <p class="see_all">
+            See All Products
+          </p>
         </div>
       </div>
     </div>
@@ -21,47 +23,11 @@
 export default {
   data () {
     return {
-      tabs: [
-        'All Toys',
-        'Wooden Toys',
-        'Stuffed Animals'
-      ],
-      activeTab: 'All Toys',
       products: [
         {
-          name: 'Teddy Bear',
-          price: '30.00',
-          image: require('assets/images/teddy.png')
-        },
-        {
           name: 'Cute Dog',
           price: '50.00',
           image: require('assets/images/cute-dog.png')
-        },
-        {
-          name: 'Mega Plush Toy',
-          price: '100.00',
-          image: require('assets/images/toy.png')
-        },
-        {
-          name: 'Little Rabbit',
-          price: '70.00',
-          image: require('assets/images/rabbit.png')
-        },
-        {
-          name: 'Cute Dog',
-          price: '50.00',
-          image: require('assets/images/cute-dog.png')
-        },
-        {
-          name: 'Mega Plush Toy',
-          price: '100.00',
-          image: require('assets/images/toy.png')
-        },
-        {
-          name: 'Teddy Bear',
-          price: '30.00',
-          image: require('assets/images/teddy.png')
         },
         {
           name: 'Mega Plush Toy',
@@ -97,21 +63,6 @@ export default {
           name: 'Cute Dog',
           price: '50.00',
           image: require('assets/images/cute-dog.png')
-        },
-        {
-          name: 'Mega Plush Toy',
-          price: '100.00',
-          image: require('assets/images/toy.png')
-        },
-        {
-          name: 'Little Rabbit',
-          price: '70.00',
-          image: require('assets/images/rabbit.png')
-        },
-        {
-          name: 'Mega Plush Toy',
-          price: '100.00',
-          image: require('assets/images/toy.png')
         }
       ]
     }
@@ -171,6 +122,11 @@ export default {
 
 .product_list_ctn {
   padding: 5rem 0;
+}
+
+.see_all {
+  cursor: pointer;
+  font-weight: 600;
 }
 
 </style>

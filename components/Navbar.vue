@@ -48,6 +48,7 @@ export default {
   box-shadow: 0px 5px 20px #dadada;
   position: fixed;
   width: 100%;
+  z-index: 30;
 }
 .navbar_inner {
   max-width: 1344px;

@@ -15,7 +15,7 @@ export default {
 
 <style scoped>
 .main_ctn {
-  background-color: #F8F8F8;
+  /* background-color: #F8F8F8; */
 }
 .catalog_ctn {
   max-width: 1344px;
