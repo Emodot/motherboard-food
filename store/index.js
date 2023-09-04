@@ -18,22 +18,40 @@ export const mutations = {
     state.cartList.push(val)
   },
   removeCartList (state, val) {
-    state.cartList = val
-    // state.cartList.push(val)
+    const list = state.cartList
+    for (let i = 0; i < list.length; i++) {
+      if (list[i].name === val.name) {
+        list.splice(i, 1)
+        i--
+      }
+    }
+    state.cartList = list
+  },
+  increaseCartProductValue (state, val) {
+    const index = state.cartList.findIndex(item => item.name === val.name)
+    if (index !== -1) {
+      state.cartList[index].value++
+    }
+  },
+  decreaseCartProductValue (state, val) {
+    const index = state.cartList.findIndex(item => item.name === val.name)
+    if (index !== -1) {
+      state.cartList[index].value--
+    }
   }
 }
 
-export const actions = {
-  removeCartListAction ({ state, commit }, payload) {
-    console.log(payload)
-    let list = state.cartList
-    list = list.reduce((acc, item) => {
-      if (item.name !== payload.name) {
-        acc.push(item)
-      }
-      return acc
-    }, [])
-    console.log(list)
-    commit('removeCartList', list)
-  }
-}
+// export const actions = {
+//   removeCartListAction ({ state, commit }, payload) {
+//     console.log(payload)
+//     const list = state.cartList
+//     for (let i = 0; i < list.length; i++) {
+//       if (list[i].name === payload.name) {
+//         list.splice(i, 1)
+//         i--
+//       }
+//     }
+//     console.log(list)
+//     commit('removeCartList', list)
+//   }
+// }
