@@ -2,7 +2,7 @@
   <div class="main_ctn">
     <div class="catalog_ctn">
       <Breadcrumb />
-      <Products />
+      <ProductsContainer />
     </div>
   </div>
 </template>
@@ -14,6 +14,9 @@ export default {
 </script>
 
 <style scoped>
+.main_ctn {
+  background-color: #F8F8F8;
+}
 .catalog_ctn {
   max-width: 1344px;
   width: 80%;
