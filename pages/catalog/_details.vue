@@ -1,12 +1,12 @@
 <template>
   <div class="main_ctn">
     <div class="details_ctn">
-      <Breadcrumb :add-route="'Teddy Bear'" />
+      <Breadcrumb :add-route="$route.params.details" />
       <div class="details_inner">
         <div class="top_section">
           <div class="lhs">
             <h2 class="product_name">
-              Teddy Bear
+              {{ $route.params.details }}
             </h2>
             <p class="product_desc">
               A successful marketing plan relies heavily on the pulling-power of advertising copy. Writing result-oriented ad copy is difficult, as it must appeal to, entice, and convince consumers to take action. There is no magic formula to write perfect ad copy. It is based on a number of factors.

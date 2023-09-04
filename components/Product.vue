@@ -1,6 +1,6 @@
 <template>
   <div class="card_list">
-    <div v-for="(card, index) in cardDetails" :key="index" class="card_ctn">
+    <div v-for="(card, index) in cardDetails" :key="index" class="card_ctn" @click="$router.push(`/catalog/${card.name}`)">
       <div class="card_image">
         <img :src="card.image" alt="">
       </div>

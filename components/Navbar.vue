@@ -3,8 +3,7 @@
     <div class="navbar_inner">
       <div class="navbar_lhs">
         <div class="logo">
-          <!-- <img src="" alt=""> -->
-          <h1>LOGO</h1>
+          <img src="~assets/images/motherboard-logo.png" alt="">
         </div>
         <div class="menu_list">
           <p class="menu_item">
@@ -69,6 +68,11 @@ export default {
 
 .logo {
   margin-right: 5rem;
+  width: 70%;
+}
+
+.logo img {
+  width: 100%;
 }
 
 .menu_list {

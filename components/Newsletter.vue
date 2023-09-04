@@ -54,7 +54,7 @@ export default {
 }
 
 .rhs {
-  justify-content: end;
+  justify-content: flex-end;
   display: flex;
   flex-basis: 45%;
 }
