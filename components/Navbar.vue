@@ -46,6 +46,8 @@ export default {
 .navbar_ctn {
   background-color: white;
   box-shadow: 0px 5px 20px #dadada;
+  position: fixed;
+  width: 100%;
 }
 .navbar_inner {
   max-width: 1344px;

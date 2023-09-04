@@ -1,13 +1,15 @@
 <template>
-  <div class="main_ctn" />
+  <div class="main_ctn">
+    <div class="catalog_ctn">
+      <Breadcrumb />
+      <ProductsContainer />
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'IndexPage',
-  mounted () {
-    this.$router.push('/catalog')
-  }
+  name: 'CatalogPage'
 }
 </script>
 

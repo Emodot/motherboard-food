@@ -1,7 +1,9 @@
 <template>
   <div>
     <Navbar />
-    <Nuxt />
+    <div class="main_content">
+      <Nuxt />
+    </div>
   </div>
 </template>
 
@@ -12,4 +14,7 @@ export default {
 </script>
 
 <style scoped>
+.main_content {
+  padding-top: 90px;
+}
 </style>
