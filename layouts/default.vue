@@ -4,6 +4,7 @@
     <div class="main_content">
       <Nuxt />
     </div>
+    <Footer />
   </div>
 </template>
 
@@ -18,6 +19,6 @@ export default {
   background-color: #F8F8F8;
 }
 .main_content {
-  padding-top: 90px;
+  padding: 90px 0;
 }
 </style>
