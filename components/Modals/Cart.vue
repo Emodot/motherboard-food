@@ -10,18 +10,18 @@
         </span>
       </div>
       <div class="modal_content">
-        <div v-for="(product, index) in 5" :key="index" class="product_item">
+        <div v-for="(product, index) in productList" :key="index" class="product_item">
           <div class="lhs">
-            <img src="~assets/images/cute-dog.png" alt="">
+            <img :src="product.image" alt="">
           </div>
           <div class="mhs">
             <p class="product_name">
-              Happy Flower
+              {{ product.name }}
             </p>
             <p class="product_price">
-              $ 38.00 USD
+              $ {{ product.price }} USD
             </p>
-            <p class="product_delete">
+            <p class="product_delete" @click="removeItem(product)">
               Remove
             </p>
           </div>
@@ -32,7 +32,7 @@
               </span>
               <div class="num">
                 <p>
-                  {{ productNum }}
+                  {{ product.value }}
                 </p>
               </div>
               <span class="material-icons-outlined" @click="increment()">
@@ -67,8 +67,13 @@ export default {
   },
   data () {
     return {
-      productNum: 1
+      productNum: 1,
+      productList: []
     }
+  },
+  created () {
+    this.productList = this.$store.state.cartList
+    console.log(this.productList)
   },
   methods: {
     increment () {
@@ -130,7 +135,7 @@ export default {
 }
 
 .modal_content {
-  height: 25rem;
+  max-height: 25rem;
   overflow: auto;
   padding: 2rem 3rem 1rem;
   border-bottom: 1px solid var(--border-color);
