@@ -27,7 +27,7 @@ export default {
 .breadcrumb_inner {
   display: flex;
   align-items: center;
-  border: 1px solid #9999997b;
+  border: 1px solid var(--border-color);
   padding: 15px 20px;
   border-radius: 30px;
 }
