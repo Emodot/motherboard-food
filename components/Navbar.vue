@@ -45,11 +45,12 @@ export default {
 <style scoped>
 .navbar_ctn {
   background-color: white;
+  box-shadow: 0px 5px 20px #dadada;
 }
 .navbar_inner {
   max-width: 1344px;
   width: 80%;
-  height: 80px;
+  height: 90px;
   margin: auto;
   display: flex;
   align-items: center;
@@ -72,6 +73,10 @@ export default {
   align-items: center;
   width: 100%;
   justify-content: space-between;
+}
+
+.menu_item {
+  cursor: pointer;
 }
 
 .cart_ctn {
