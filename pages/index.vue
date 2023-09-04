@@ -2,6 +2,7 @@
   <div class="main_ctn">
     <div class="catalog_ctn">
       <Breadcrumb />
+      <Products />
     </div>
   </div>
 </template>

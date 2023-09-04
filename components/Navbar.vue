@@ -91,7 +91,7 @@ export default {
 .num_box {
   width: 20px;
   height: 20px;
-  background-color: #A5C926;
+  background-color: var(--primary-color);
   display: flex;
   justify-content: center;
   align-content: center;
@@ -102,5 +102,6 @@ export default {
 .num_box p {
   font-size: 12px;
   color: white;
+  line-height: 19px;
 }
 </style>
