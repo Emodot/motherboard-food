@@ -13,7 +13,7 @@
               </p>
               <hr class="delivery_line">
               <div class="delivery_options">
-                <div v-for="(data, index) in options" :key="index" :class="`option ${data.name === delivery_option ? 'selected_option' : ''}`" @click="selectDelivery(data)">
+                <div v-for="(data, index) in options" :key="index" :class="`option ${data.name === billings.delivery_option ? 'selected_option' : ''}`" @click="selectDelivery(data)">
                   <span class="material-icons-outlined">
                     {{ data.icon }}
                   </span>
@@ -32,33 +32,33 @@
                     <p class="label">
                       First Name
                     </p>
-                    <input class="form_input" placeholder="Enter your First Name" type="text">
+                    <input v-model="billings.first_name" class="form_input" placeholder="Enter your First Name" type="text">
                   </div>
                   <div class="flex_ctn">
                     <p class="label">
                       Last Name
                     </p>
-                    <input class="form_input" placeholder="Enter your Last Name" type="text">
+                    <input v-model="billings.last_name" class="form_input" placeholder="Enter your Last Name" type="text">
                   </div>
                 </div>
                 <div class="input_ctn">
                   <p class="label">
                     Address
                   </p>
-                  <input class="form_input" placeholder="Enter your Address" type="text">
+                  <input v-model="billings.address" class="form_input" placeholder="Enter your Address" type="text">
                 </div>
                 <div class="form_flex">
                   <div class="flex_ctn">
                     <p class="label">
                       Email Address
                     </p>
-                    <input class="form_input" placeholder="Enter your Email Address" type="email">
+                    <input v-model="billings.email" class="form_input" placeholder="Enter your Email Address" type="email">
                   </div>
                   <div class="flex_ctn">
                     <p class="label">
                       Phone Number
                     </p>
-                    <input class="form_input" placeholder="Enter your Phone Number" type="number">
+                    <input v-model="billings.notes" class="form_input" placeholder="Enter your Phone Number" type="number">
                   </div>
                 </div>
               </div>
@@ -72,7 +72,7 @@
                 <p class="label">
                   Order notes (optional)
                 </p>
-                <textarea class="form_textarea" placeholder="Notes about your order, e.g. special notes for delivery" type="text" />
+                <textarea v-model="billings.delivery_option" class="form_textarea" placeholder="Notes about your order, e.g. special notes for delivery" type="text" />
               </div>
             </div>
           </div>
@@ -91,23 +91,28 @@
                   </p>
                 </div>
                 <hr class="order_line">
-                <div v-for="data in 3" :key="data.index">
-                  <div class="order_inner">
-                    <p class="order_name">
-                      Critical Pillars of Achieving Excellence in Life, Business and Career  <span>× 2</span>
-                    </p>
-                    <p class="order_value">
-                      ₦4,000.00
-                    </p>
+                <div v-if="productList.length">
+                  <div v-for="data in productList" :key="data.index">
+                    <div class="order_inner">
+                      <p class="order_name">
+                        {{ data.name }}  <span> x {{ data.value }}</span>
+                      </p>
+                      <p class="order_value">
+                        ₦{{ data.price * data.value }}
+                      </p>
+                    </div>
+                    <hr class="order_line">
                   </div>
-                  <hr class="order_line">
+                </div>
+                <div v-else class="empty_box">
+                  <p>No items found</p>
                 </div>
                 <div class="order_inner">
                   <p class="order_header">
                     Subtotal
                   </p>
                   <p class="order_header">
-                    ₦4,000.00
+                    ₦{{ total }}.00
                   </p>
                 </div>
                 <hr class="order_line">
@@ -116,7 +121,7 @@
                     Total
                   </p>
                   <p class="order_header">
-                    ₦4,000.00
+                    ₦{{ total }}.00
                   </p>
                 </div>
                 <hr class="order_line">
@@ -152,12 +157,29 @@ export default {
           icon: 'place'
         }
       ],
-      delivery_option: ''
+      billings: {
+        first_name: '',
+        last_name: '',
+        address: '',
+        phone: '',
+        email: '',
+        notes: '',
+        delivery_option: ''
+      },
+      productList: [],
+      total: 0
     }
+  },
+  created () {
+    this.productList = this.$store.state.cartList
+    this.productList.forEach((element) => {
+      this.total = this.total + (element.price * element.value)
+    })
+    // console.log(this.total)
   },
   methods: {
     selectDelivery (val) {
-      this.delivery_option = val.name
+      this.billings.delivery_option = val.name
     }
   }
 }
@@ -330,10 +352,13 @@ export default {
   font-weight: 400;
   line-height: 24px;
 }
+
 .order_name span {
+  padding-left: 10px;
   font-size: 15px;
   font-weight: 700;
 }
+
 .order_value {
   font-size: 15px;
   font-weight: 700;
@@ -347,13 +372,24 @@ export default {
 .box_bottom {
   margin-top: 30px;
 }
+.box_bottom p {
+  margin-bottom: 20px;
+}
 .order_btn {
   margin-top: 30px;
   height: 50px;
   border-radius: 30px;
+  font-weight: 700;
   width: 100%;
   background-color: var(--primary-color);
   color: white;
+}
+
+.empty_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 6rem;
 }
 
 </style>

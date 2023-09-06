@@ -30,103 +30,103 @@ export default {
       products: [
         {
           name: 'Teddy Bear',
-          price: '30.00',
+          price: 30,
           image: require('assets/images/teddy.png'),
           value: 1
         },
         {
           name: 'Cute Dog',
-          price: '50.00',
+          price: 50,
           image: require('assets/images/cute-dog.png'),
           value: 1
         },
         {
           name: 'Mega Plush Toy',
-          price: '100.00',
+          price: 100,
           image: require('assets/images/toy.png'),
           value: 1
         },
         {
           name: 'Little Rabbit',
-          price: '70.00',
+          price: 70,
           image: require('assets/images/rabbit.png'),
           value: 1
         },
         {
           name: 'Cute Dog',
-          price: '50.00',
+          price: 50,
           image: require('assets/images/cute-dog.png'),
           value: 1
         },
         {
           name: 'Mega Plush Toy',
-          price: '100.00',
+          price: 100,
           image: require('assets/images/toy.png'),
           value: 1
         },
         {
           name: 'Teddy Bear',
-          price: '30.00',
+          price: 30,
           image: require('assets/images/teddy.png'),
           value: 1
         },
         {
           name: 'Mega Plush Toy',
-          price: '100.00',
+          price: 100,
           image: require('assets/images/toy.png'),
           value: 1
         },
         {
           name: 'Little Rabbit',
-          price: '70.00',
+          price: 70,
           image: require('assets/images/rabbit.png'),
           value: 1
         },
         {
           name: 'Cute Dog',
-          price: '50.00',
+          price: 50,
           image: require('assets/images/cute-dog.png'),
           value: 1
         },
         {
           name: 'Teddy Bear',
-          price: '30.00',
+          price: 30,
           image: require('assets/images/teddy.png'),
           value: 1
         },
         {
           name: 'Little Rabbit',
-          price: '70.00',
+          price: 70,
           image: require('assets/images/rabbit.png'),
           value: 1
         },
         {
           name: 'Mega Plush Toy',
-          price: '100.00',
+          price: 100,
           image: require('assets/images/toy.png'),
           value: 1
         },
         {
           name: 'Cute Dog',
-          price: '50.00',
+          price: 50,
           image: require('assets/images/cute-dog.png'),
           value: 1
         },
         {
           name: 'Mega Plush Toy',
-          price: '100.00',
+          price: 100,
           image: require('assets/images/toy.png'),
           value: 1
         },
         {
           name: 'Little Rabbit',
-          price: '70.00',
+          price: 70,
           image: require('assets/images/rabbit.png'),
           value: 1
         },
         {
           name: 'Mega Plush Toy',
-          price: '100.00',
+          price: 100,
           image: require('assets/images/toy.png'),
           value: 1
         }
