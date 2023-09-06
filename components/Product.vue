@@ -83,4 +83,17 @@ export default {
 .card_amount p {
   color: white;
 }
+
+@media only screen and (max-width: 1200px) {
+  .card_ctn {
+    width: 31%;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .card_ctn {
+    width: 48%;
+  }
+}
+@media only screen and (max-width: 500px) {
+}
 </style>

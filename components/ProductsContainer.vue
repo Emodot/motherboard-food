@@ -190,4 +190,20 @@ export default {
   padding: 5rem 0;
 }
 
+@media only screen and (max-width: 900px) {
+  .navbar_inner {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .top_section {
+    flex-direction: column;
+    padding-bottom: 20px;
+  }
+
+  .title {
+    margin-bottom: 30px;
+  }
+}
+
 </style>
