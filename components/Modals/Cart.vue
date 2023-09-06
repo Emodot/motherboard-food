@@ -20,7 +20,7 @@
                 {{ product.name }}
               </p>
               <p class="product_price">
-                $ {{ product.price }} USD
+                ₦ {{ product.price }}
               </p>
               <p class="product_delete" @click="removeItem(product)">
                 Remove
@@ -46,7 +46,7 @@
         <div class="subtotal">
           <p>Subtotal</p>
           <p class="amount">
-            $ 106.00 USD
+            ₦ {{ total }}.00
           </p>
         </div>
         <div class="bottom_section">
@@ -64,35 +64,27 @@
 
 <script>
 export default {
-  props: {
-    productData: {
-      type: Object,
-      default: () => {}
-    }
-  },
   data () {
     return {
-      productNum: 1,
-      productList: []
+      productList: [],
+      total: 0
     }
   },
   created () {
     this.productList = this.$store.state.cartList
+    this.calculateTotal()
   },
   methods: {
+    calculateTotal () {
+      this.productList.forEach((element) => {
+        this.total = this.total + (element.price * element.value)
+      })
+    },
     removeItem (val) {
-      // this.productList = this.productList.reduce((acc, item) => {
-      //   if (item.name !== val.name) {
-      //     acc.push(item)
-      //   }
-      //   return acc
-      // }, [])
-      // console.log(this.productList)
       this.$store.commit('removeCartList', val)
     },
     increment (val) {
       this.$store.commit('increaseCartProductValue', val)
-      // this.productNum++
     },
     decrement (val) {
       if (val.value > 1) {
