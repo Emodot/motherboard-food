@@ -147,4 +147,27 @@ export default {
   font-size: 12px;
   padding-bottom: 3rem;
 }
+
+@media only screen and (max-width: 900px) {
+  .footer_middle {
+    display: none;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .footer_lhs {
+    flex-basis: 80%;
+  }
+  .logo {
+    margin-right: 5rem;
+    width: 80%;
+  }
+  .footer_rhs {
+  flex-basis: 20%;
+}
+
+.social_ctn svg {
+  width: 14px;
+  height: 14px;
+}
+}
 </style>

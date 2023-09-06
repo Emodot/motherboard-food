@@ -19,4 +19,14 @@ export default {
   width: 80%;
   margin: auto;
 }
+
+@media only screen and (max-width: 1200px) {
+  .catalog_ctn {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 900px) {
+}
+@media only screen and (max-width: 500px) {
+}
 </style>

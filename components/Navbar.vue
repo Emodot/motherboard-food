@@ -186,6 +186,9 @@ export default {
   }
 }
 @media only screen and (max-width: 500px) {
+  .navbar_lhs {
+    flex-basis: 40%;
+  }
 }
 
 @media only screen and (max-width: 1200px) {
