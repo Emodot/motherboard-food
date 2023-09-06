@@ -21,83 +21,114 @@
                 </div>
               </div>
             </div>
-            <p class="lhs_head">
-              Billing Details
-            </p>
-            <hr class="billing_line">
-            <div class="form">
-              <div class="form_flex">
-                <div class="flex_ctn">
-                  <p class="label">
-                    First Name
-                  </p>
-                  <input class="form_input" placeholder="Enter your First Name" type="text">
+            <div class="billing_section">
+              <p class="lhs_head">
+                Billing Details
+              </p>
+              <hr class="billing_line">
+              <div class="form">
+                <div class="form_flex">
+                  <div class="flex_ctn">
+                    <p class="label">
+                      First Name
+                    </p>
+                    <input class="form_input" placeholder="Enter your First Name" type="text">
+                  </div>
+                  <div class="flex_ctn">
+                    <p class="label">
+                      Last Name
+                    </p>
+                    <input class="form_input" placeholder="Enter your Last Name" type="text">
+                  </div>
                 </div>
-                <div class="flex_ctn">
+                <div class="input_ctn">
                   <p class="label">
-                    Last Name
+                    Address
                   </p>
-                  <input class="form_input" placeholder="Enter your Last Name" type="text">
+                  <input class="form_input" placeholder="Enter your Address" type="text">
+                </div>
+                <div class="form_flex">
+                  <div class="flex_ctn">
+                    <p class="label">
+                      Email Address
+                    </p>
+                    <input class="form_input" placeholder="Enter your Email Address" type="email">
+                  </div>
+                  <div class="flex_ctn">
+                    <p class="label">
+                      Phone Number
+                    </p>
+                    <input class="form_input" placeholder="Enter your Phone Number" type="number">
+                  </div>
                 </div>
               </div>
+            </div>
+            <p class="lhs_head">
+              Additional information
+            </p>
+            <hr class="delivery_line">
+            <div class="form">
               <div class="input_ctn">
                 <p class="label">
-                  Address
+                  Order notes (optional)
                 </p>
-                <input class="form_input" placeholder="Enter your Address" type="text">
-              </div>
-              <div class="form_flex">
-                <div class="flex_ctn">
-                  <p class="label">
-                    Email Address
-                  </p>
-                  <input class="form_input" placeholder="Enter your Email Address" type="email">
-                </div>
-                <div class="flex_ctn">
-                  <p class="label">
-                    Phone Number
-                  </p>
-                  <input class="form_input" placeholder="Enter your Phone Number" type="number">
-                </div>
+                <textarea class="form_textarea" placeholder="Notes about your order, e.g. special notes for delivery" type="text" />
               </div>
             </div>
           </div>
           <div class="rhs">
-            <div class="size_ctn">
-              <div class="size_inner">
-                <p class="size_name">
-                  Width
+            <div class="order_ctn">
+              <div class="order_info">
+                <p class="order_head_text">
+                  Your order
                 </p>
-                <p class="size_value">
-                  38 in
-                </p>
+                <div class="order_inner">
+                  <p class="order_header">
+                    Product
+                  </p>
+                  <p class="order_header">
+                    Subtotal
+                  </p>
+                </div>
+                <hr class="order_line">
+                <div v-for="data in 3" :key="data.index">
+                  <div class="order_inner">
+                    <p class="order_name">
+                      Critical Pillars of Achieving Excellence in Life, Business and Career  <span>× 2</span>
+                    </p>
+                    <p class="order_value">
+                      ₦4,000.00
+                    </p>
+                  </div>
+                  <hr class="order_line">
+                </div>
+                <div class="order_inner">
+                  <p class="order_header">
+                    Subtotal
+                  </p>
+                  <p class="order_header">
+                    ₦4,000.00
+                  </p>
+                </div>
+                <hr class="order_line">
+                <div class="order_inner">
+                  <p class="order_header">
+                    Total
+                  </p>
+                  <p class="order_header">
+                    ₦4,000.00
+                  </p>
+                </div>
+                <hr class="order_line">
               </div>
-              <hr class="size_line">
-              <div class="size_inner">
-                <p class="size_name">
-                  Height
-                </p>
-                <p class="size_value">
-                  32 in
-                </p>
-              </div>
-              <hr class="size_line">
-              <div class="size_inner">
-                <p class="size_name">
-                  Length
-                </p>
-                <p class="size_value">
-                  21.5 in
-                </p>
-              </div>
-              <hr class="size_line">
-              <div class="size_inner">
-                <p class="size_name">
-                  Weight
-                </p>
-                <p class="size_value">
-                  24 0z
-                </p>
+              <div class="box_bottom">
+                <p>Debit/Credit Cards</p>
+                <div class="cards_img">
+                  <img src="~assets/images/paystack-wc.png" alt="">
+                </div>
+                <button class="order_btn">
+                  PLACE ORDER
+                </button>
               </div>
             </div>
           </div>
@@ -189,6 +220,9 @@ export default {
 .delivery_section {
   margin-bottom: 40px;
 }
+.billing_section {
+  margin-bottom: 40px;
+}
 
 .delivery_options {
   display: flex;
@@ -252,9 +286,74 @@ export default {
   background-color: transparent;
   padding: 0 20px;
 }
+.form_textarea {
+  height: 150px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
+  background-color: transparent;
+  padding: 20px;
+}
 
 ::placeholder {
   color: var(--border-color);
+}
+
+.order_head_text {
+  font-family: 'Varela Round', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.order_ctn {
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 30px 30px;
+}
+
+.order_inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0;
+}
+
+.order_header {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.order_name {
+  font-size: 15px;
+  width: 80%;
+  font-weight: 400;
+  line-height: 24px;
+}
+.order_name span {
+  font-size: 15px;
+  font-weight: 700;
+}
+.order_value {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.order_line {
+  border: none;
+  border-top: 1px solid var(--border-color);
+}
+
+.box_bottom {
+  margin-top: 30px;
+}
+.order_btn {
+  margin-top: 30px;
+  height: 50px;
+  border-radius: 30px;
+  width: 100%;
+  background-color: var(--primary-color);
+  color: white;
 }
 
 </style>
