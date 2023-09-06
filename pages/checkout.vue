@@ -13,7 +13,7 @@
               </p>
               <hr class="delivery_line">
               <div class="delivery_options">
-                <div v-for="(data, index) in options" :key="index" class="option">
+                <div v-for="(data, index) in options" :key="index" :class="`option ${data.name === delivery_option ? 'selected_option' : ''}`" @click="selectDelivery(data)">
                   <span class="material-icons-outlined">
                     {{ data.icon }}
                   </span>
@@ -120,7 +120,13 @@ export default {
           name: 'Pick Up',
           icon: 'place'
         }
-      ]
+      ],
+      delivery_option: ''
+    }
+  },
+  methods: {
+    selectDelivery (val) {
+      this.delivery_option = val.name
     }
   }
 }
@@ -195,7 +201,21 @@ export default {
   align-items: center;
   border: 1px solid var(--border-color);
   border-radius: 5px;
+  cursor: pointer;
   margin-right: 30px;
+}
+
+.selected_option {
+  border: 2px solid var(--primary-color);
+}
+
+.selected_option p {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.selected_option .material-icons-outlined {
+  color: var(--primary-color);
 }
 
 .option p {
