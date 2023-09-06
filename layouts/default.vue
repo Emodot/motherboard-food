@@ -5,7 +5,7 @@
       <Nuxt />
     </div>
     <Footer />
-    <ModalsCart v-if="openCart" @close-modal="openCart = false" />
+    <ModalsCart v-if="openCart" @close-modal="openCart = false" @goToCheckout="goToCheckout" />
   </div>
 </template>
 
@@ -14,6 +14,12 @@ export default {
   data () {
     return {
       openCart: false
+    }
+  },
+  methods: {
+    goToCheckout () {
+      this.openCart = false
+      this.$router.push('/checkout')
     }
   }
 

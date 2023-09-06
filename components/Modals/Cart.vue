@@ -50,7 +50,7 @@
           </p>
         </div>
         <div class="bottom_section">
-          <button class="checkout_btn">
+          <button class="checkout_btn" @click="$emit('goToCheckout')">
             Continue to Checkout
           </button>
         </div>

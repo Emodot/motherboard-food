@@ -3,23 +3,31 @@
     <div class="navbar_inner">
       <div class="navbar_lhs">
         <div class="logo">
-          <img src="~assets/images/motherboard-logo.png" alt="">
+          <img src="~assets/images/motherboard-logo.png" alt="" @click="$router.push('/')">
         </div>
       </div>
       <div class="navbar_middle">
         <div class="menu_list">
-          <p class="menu_item">
-            Catalog
-          </p>
-          <p class="menu_item">
-            Delivery
-          </p>
-          <p class="menu_item">
-            About
-          </p>
-          <p class="menu_item">
-            Contacts
-          </p>
+          <NuxtLink to="/catalog">
+            <p class="menu_item">
+              Catalog
+            </p>
+          </NuxtLink>
+          <NuxtLink to="#">
+            <p class="menu_item">
+              Delivery
+            </p>
+          </NuxtLink>
+          <NuxtLink to="#">
+            <p class="menu_item">
+              About
+            </p>
+          </NuxtLink>
+          <NuxtLink to="#">
+            <p class="menu_item">
+              Contacts
+            </p>
+          </NuxtLink>
         </div>
       </div>
       <div class="navbar_rhs">
@@ -83,6 +91,7 @@ export default {
 }
 
 .logo img {
+  cursor: pointer;
   width: 100%;
 }
 
