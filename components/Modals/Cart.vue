@@ -114,7 +114,7 @@ export default {
 .modal {
   /* margin-top: 5%; */
   background-color: white;
-  width: 32%;
+  width: 40%;
   max-width: 550px;
   height: fit-content;
   align-items: center;
@@ -236,19 +236,26 @@ export default {
   color: white;
 }
 
+@media only screen and (max-width: 1200px) {
+  .modal {
+    width: 50%;
+  }
+}
+
 @media only screen and (max-width: 900px) {
-  .modal-2 {
+  .modal {
     width: 70%;
   }
 }
 
 @media only screen and (max-width: 500px) {
 
-  .modal-2 {
+  .modal {
     width: 90%;
-    padding: 30px;
-    /* padding-top: 50px; */
-    margin-top: 1rem;
+  }
+
+  .modal_content {
+    padding: 20px 10px;
   }
 
 }

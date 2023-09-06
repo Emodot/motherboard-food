@@ -357,4 +357,58 @@ export default {
   border: none;
   border-top: 1px solid var(--border-color);
 }
+
+@media only screen and (max-width: 1200px) {
+  .details_ctn {
+    width: 90%;
+  }
+
+  .details_inner {
+    padding: 4rem 4rem 4rem;
+  }
+  .product_desc {
+    width: 90%;
+  }
+    .content_lhs {
+      flex-basis: 60%;
+    }
+
+    .content_rhs {
+      flex-basis: 35%;
+    }
+}
+@media only screen and (max-width: 900px) {
+  .top_section {
+    flex-direction: column-reverse;
+  }
+
+  .rhs {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .product_desc {
+    width: 100%;
+  }
+
+  .details_content {
+    flex-direction: column;
+  }
+
+  .content_rhs {
+    width: 50%;
+  }
+
+  .product_name {
+    font-size: 30px;
+  }
+
+}
+@media only screen and (max-width: 500px) {
+  .details_inner {
+    padding: 2rem 2rem 2rem;
+  }
+  .content_rhs {
+    width: 100%;
+  }
+}
 </style>
