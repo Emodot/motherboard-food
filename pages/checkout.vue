@@ -188,14 +188,14 @@ export default {
 <style scoped>
 .main_ctn {
   background-color: #F8F8F8;
-  padding-bottom: 5rem;
+  /* padding-bottom: 5rem; */
 }
 .checkout_ctn {
   max-width: 1344px;
   width: 80%;
   margin: auto;
-  padding: 7rem 0;
-  margin-bottom: 7rem;
+  padding: 7rem 0 0;
+  /* margin-bottom: 7rem; */
 }
 
 .head_section {
@@ -390,6 +390,31 @@ export default {
   justify-content: center;
   align-items: center;
   height: 6rem;
+}
+
+@media only screen and (max-width: 1200px) {
+  .checkout_ctn {
+    width: 70%;
+  }
+  .body_inner {
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 900px) {
+}
+@media only screen and (max-width: 500px) {
+  .checkout_ctn {
+    width: 90%;
+  }
+
+  .delivery_options {
+    justify-content: space-between;
+  }
+
+  .option {
+    flex-basis: 48%;
+    margin-right: 0;
+  }
 }
 
 </style>

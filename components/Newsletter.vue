@@ -90,4 +90,50 @@ export default {
   height: 50px;
   padding: 0 30px;
 }
+
+@media only screen and (max-width: 1200px) {
+  .newsletter_ctn {
+    padding: 3rem;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .newsletter_ctn {
+    width: 70%;
+    margin: auto;
+    padding: 3rem;
+    flex-direction: column;
+  }
+  .lhs {
+    flex-direction: column;
+  }
+  .rhs {
+    flex-direction: column;
+    width: 100%;
+  }
+  .lhs svg {
+  margin-right: 0;
+  margin-bottom: 15px;
+}
+
+  .text {
+    text-align: center;
+  margin-bottom: 15px;
+  }
+  .newsletter_input {
+    margin-right: 0;
+    margin-bottom: 15px;
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .newsletter_ctn {
+    width: 100%;
+  }
+  .text {
+    font-size: 20px;
+  }
+  .spaned_text {
+    font-size: 20px;
+  }
+}
 </style>

@@ -129,4 +129,17 @@ export default {
   font-weight: 600;
 }
 
+@media only screen and (max-width: 1200px) {
+}
+@media only screen and (max-width: 900px) {
+  .title {
+    font-size: 24px;
+  }
+  .top_section {
+    padding: 20px 0 20px;
+  }
+}
+@media only screen and (max-width: 500px) {
+}
+
 </style>
